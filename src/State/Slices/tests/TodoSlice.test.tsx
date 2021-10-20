@@ -8,9 +8,7 @@ import {
   Status,
   todoReducer,
 } from "../TodoSlice";
-
-const { nanoid } = toolkit;
-const mockNanoid = jest.fn(() => nanoid());
+import { nanoid } from "@reduxjs/toolkit";
 
 describe("TodoSlice actions most: ", () => {
   let initState: sliceState = {
@@ -80,6 +78,17 @@ describe("TodoSlice actions most: ", () => {
     );
 
     expect(reducedInitState.todo.length).toBe(5);
+  });
+  test("addTask-action used mocked nanoid", () => {
+    let mockNanoid = jest
+      .spyOn(toolkit, "nanoid")
+      .mockReturnValue("nanoidValue");
+
+    const reducedInitState = todoReducer(
+      initState,
+      addTask({ title: "title", description: "description" })
+    );
+    expect(mockNanoid).toBeCalledTimes(1);
   });
   test("removeTask-action not delete task because unCorrect id", () => {
     let reducedInitState = todoReducer(initState, removeTask("unCorrect id"));

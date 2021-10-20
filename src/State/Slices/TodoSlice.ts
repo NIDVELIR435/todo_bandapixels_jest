@@ -52,16 +52,16 @@ export const todoSlice = createSlice({
       state.currentFilterValue = category;
     },
     searchTask: (state, action) => {
-      function SearchIndex(item: any) {
-        return item.description.indexOf(action.payload) > -1 ? true : false;
-      }
-      function inputSearchFUNC() {
-        return state.todo.filter((item) => SearchIndex(item));
-      }
-      return {
-        ...state,
-        filterContain: inputSearchFUNC(),
-      };
+      // function SearchIndex(item: any) {
+      //   return item.description.indexOf(action.payload) > -1 ? true : false;
+      // }
+      // function inputSearchFUNC() {
+      //   return state.todo.filter((item) => SearchIndex(item));
+      // }
+      // return {
+      //   ...state,
+      //   currentFilterValue: inputSearchFUNC(),
+      // };
     },
   },
 });
