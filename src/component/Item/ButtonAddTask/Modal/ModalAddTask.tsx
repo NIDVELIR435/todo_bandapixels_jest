@@ -3,12 +3,12 @@ import { Modal, Input } from "antd";
 
 type Props = {
   showModal: boolean;
-  setShowModal: any;
+  setShowModal: Function;
   title: string;
-  setTitle: any;
+  setTitle: Function;
   description: string;
-  setDescription: any;
-  addTaskFunc: any;
+  setDescription: Function;
+  addTaskFunc: Function;
 };
 export const ModalAddTask = (props: Props): JSX.Element => {
   const [ShowModalDescription, setShowModalDescription] = useState(false);

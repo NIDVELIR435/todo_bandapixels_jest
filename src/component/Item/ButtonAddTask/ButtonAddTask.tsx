@@ -31,9 +31,6 @@ export const ButtonAddTask = (): JSX.Element => {
       <Button onClick={showModalFunc} tabIndex={1}>
         Add task
       </Button>
-      <Button disabled tabIndex={2}>
-        Press to search
-      </Button>
     </>
   );
 };

@@ -7,6 +7,7 @@ import ButtonComplete from "./component/Item/ButtonComplete/ButtonComplete";
 import { ButtonAddTask } from "./component/Item/ButtonAddTask/ButtonAddTask";
 import { Task } from "./component/Item/Task/Task";
 import { ButtonOnHold } from "./component/Item/ButtonOnHold/ButtonOnHold";
+import { ButtonSearch } from "./component/Item/ButtonSearch/ButtonSearch";
 
 function App(): JSX.Element {
   const { Header, Content, Footer } = Layout;
@@ -21,6 +22,7 @@ function App(): JSX.Element {
       <Content style={{ padding: "0 50px" }}>
         <div className="site-layout-content">
           <ButtonAddTask />
+          <ButtonSearch />
           <ButtonAll />
           <ButtonActive />
           <ButtonOnHold />
