@@ -27,16 +27,21 @@ export const Item = (props: Props) => {
   }
   const color =
     props.status === Status.Active
-      ? { borderRadius: 5, padding: 5, width: 300, background: "#0050b3" }
+      ? "#0050b3"
       : props.status === Status.On_Hold
-      ? { borderRadius: 5, padding: 5, width: 300, background: "#bfbfbf" }
-      : { borderRadius: 5, padding: 5, width: 300, background: "#389e0d" };
+      ? "#bfbfbf"
+      : "#389e0d";
   return (
     <>
       <Space direction="vertical" id={props.id}>
         <Card
           title={props.title}
-          style={color}
+          style={{
+            borderRadius: 5,
+            padding: 5,
+            width: 300,
+            background: `${color}`,
+          }}
           extra={
             <>
               <Select

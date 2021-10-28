@@ -13,7 +13,6 @@ export const SearchResultScreen = (props: Props): JSX.Element => {
   function onChange(e: any) {
     setSearchValue(e.target.value);
   }
-  debugger;
   const Items = todos.map((todo: Todo) => (
     <Item
       key={todo.id}
@@ -27,11 +26,14 @@ export const SearchResultScreen = (props: Props): JSX.Element => {
     <Drawer
       title={
         <Input
-          placeholder="what you search?"
+          autoFocus={true}
+          placeholder="what you searching?"
           onChange={onChange}
           value={searchValue}
         />
       }
+      destroyOnClose={true}
+      height="300"
       placement={"top"}
       closable={false}
       onClose={() => {

@@ -1,7 +1,7 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./Store";
 import { createSelector } from "@reduxjs/toolkit";
-import { Status } from "./Slices/TodoSlice";
+import { Status, Todo } from "./Slices/TodoSlice";
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -19,16 +19,9 @@ const memoSelectorFilter = createSelector(
 );
 export const useFilteredSelector = () => useAppSelector(memoSelectorFilter);
 
-export const useSearchSelector = (searchValue: string) => {
+export const useSearchSelector = (searchValue: string): Todo[] => {
   const data = useAppSelector((state) => state.todos.todo);
   return data.filter(
-    (todo) => {
-      if (todo.title.search(searchValue) !== -1) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-    // todo.title.indexOf(searchValue) || todo.description.indexOf(searchValue)
+    (todo) => todo.title.indexOf(searchValue) > -1 && searchValue !== ""
   );
 };

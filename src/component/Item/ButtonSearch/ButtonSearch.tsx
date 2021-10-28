@@ -3,7 +3,7 @@ import { Button } from "antd";
 import { SearchResultScreen } from "../SearchResultScreen/SearchResultScreen";
 
 export const ButtonSearch = (): JSX.Element => {
-  const [showSearchScreen, setShowSearchScreen] = useState(true);
+  const [showSearchScreen, setShowSearchScreen] = useState(false);
   const visibleStat = (param: boolean) => setShowSearchScreen(param);
 
   return (
