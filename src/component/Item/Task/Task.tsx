@@ -1,7 +1,7 @@
 import React from "react";
-import { useFilteredSelector } from "../../../State/Hooks";
+import { useFilteredSelector } from "State/Hooks";
 import { Item } from "./Item/Item";
-import { Todo } from "../../../State/Slices/TodoSlice";
+import { Todo } from "State/Slices/Todo";
 
 export const Task: React.FC = () => {
   const data = useFilteredSelector();

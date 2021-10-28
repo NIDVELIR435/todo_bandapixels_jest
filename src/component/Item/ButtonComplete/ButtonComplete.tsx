@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "antd";
-import { currentFilter, Status } from "../../../State/Slices/TodoSlice";
-import { useAppDispatch } from "../../../State/Hooks";
+import { currentFilter } from "State/Slices/TodoSlice";
+import { useAppDispatch } from "State/Hooks";
+import { Status } from "Types/EnumStatus";
 
 const ButtonComplete = (): JSX.Element => {
   const dispatch = useAppDispatch();

@@ -1,15 +1,7 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
-export enum Status {
-  Active = "Active",
-  On_Hold = "On_Hold",
-  Completed = "Completed",
-}
-export type Todo = {
-  id: string;
-  title: string;
-  description: string;
-  status: Status;
-};
+import { Status } from "Types/EnumStatus";
+import { Todo } from "./Todo";
+
 export type sliceState = {
   todo: Array<Todo>;
   currentFilterValue: string;

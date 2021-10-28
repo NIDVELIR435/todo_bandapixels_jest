@@ -1,11 +1,8 @@
 import React from "react";
 import { Space, Card, Button, Select } from "antd";
-import {
-  removeTask,
-  changeStatus,
-  Status,
-} from "../../../../State/Slices/TodoSlice";
-import { useAppDispatch } from "../../../../State/Hooks";
+import { removeTask, changeStatus } from "State/Slices/TodoSlice";
+import { useAppDispatch } from "State/Hooks";
+import { Status } from "Types/EnumStatus";
 
 type Props = {
   id: string;

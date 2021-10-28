@@ -4,10 +4,9 @@ import {
   currentFilter,
   removeTask,
   sliceState,
-  Status,
   todoReducer,
-  searchTask,
 } from "./TodoSlice";
+import { Status } from "../../Types/EnumStatus";
 
 jest.mock("@reduxjs/toolkit", () => {
   const mockedId = "MOCKED_ID";
