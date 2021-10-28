@@ -5,29 +5,21 @@ type Props = {
   showDescriptionModal: boolean;
   hideDescriptionModal: () => void;
   description: string;
-  setDescription: Function;
-  addTaskFunc: Function;
-  setTitle: Function;
+  setDescription: (arg: string) => void;
+  onConfirmDescription: () => void;
 };
 export const DescriptionModal: React.FC<Props> = ({
   showDescriptionModal,
   hideDescriptionModal,
   description,
   setDescription,
-  addTaskFunc,
-  setTitle,
+  onConfirmDescription,
 }) => {
-  const confirmAction = () => {
-    addTaskFunc();
-    setTitle("");
-    setDescription("");
-    hideDescriptionModal();
-  };
   return (
     <Modal
       title="Set description for your task"
       visible={showDescriptionModal}
-      onOk={confirmAction}
+      onOk={onConfirmDescription}
       onCancel={hideDescriptionModal}
       closable={false}
       destroyOnClose={true}
@@ -35,7 +27,7 @@ export const DescriptionModal: React.FC<Props> = ({
       <Input
         placeholder="input your description"
         value={description}
-        onPressEnter={confirmAction}
+        onPressEnter={onConfirmDescription}
         autoFocus={true}
         onChange={(e) => setDescription(e.target.value)}
       />

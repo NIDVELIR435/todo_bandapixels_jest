@@ -1,13 +1,13 @@
 import React from "react";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
-import { ButtonAll } from "./component/Item/ButtonAll/ButtonAll";
-import ButtonActive from "./component/Item/ButtonActive/ButtonActive";
-import ButtonComplete from "./component/Item/ButtonComplete/ButtonComplete";
-import { ButtonAddTask } from "./component/Item/ButtonAddTask/ButtonAddTask";
-import { Task } from "./component/Item/Task/Task";
-import { ButtonOnHold } from "./component/Item/ButtonOnHold/ButtonOnHold";
-import { ButtonSearch } from "./component/Item/ButtonSearch/ButtonSearch";
+import { ButtonAll } from "./component/Buttons/ButtonAll/ButtonAll";
+import ButtonActive from "./component/Buttons/ButtonActive/ButtonActive";
+import ButtonComplete from "./component/Buttons/ButtonComplete/ButtonComplete";
+import { ButtonAddTask } from "./component/Buttons/ButtonAddTask/ButtonAddTask";
+import { FieldForTodos } from "./component/FieldForTodos/FieldForTodos";
+import { ButtonOnHold } from "./component/Buttons/ButtonOnHold/ButtonOnHold";
+import { ButtonForDrawerOfSearch } from "./component/Buttons/ButtonForDrawerOfSearch/ButtonForDrawerOfSearch";
 
 function App(): JSX.Element {
   const { Header, Content, Footer } = Layout;
@@ -22,13 +22,13 @@ function App(): JSX.Element {
       <Content style={{ padding: "0 50px" }}>
         <div className="site-layout-content">
           <ButtonAddTask />
-          <ButtonSearch />
+          <ButtonForDrawerOfSearch />
           <ButtonAll />
           <ButtonActive />
           <ButtonOnHold />
           <ButtonComplete />
         </div>
-        <Task />
+        <FieldForTodos />
       </Content>
       <Footer style={{ textAlign: "center" }}>
         ©2021 Created by BandaPixels

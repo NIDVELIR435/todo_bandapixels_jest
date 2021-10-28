@@ -1,9 +1,9 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 import { Status } from "Types/EnumStatus";
-import { Todo } from "./Todo";
+import { TodoType } from "./TodoType";
 
 export type sliceState = {
-  todo: Array<Todo>;
+  todo: Array<TodoType>;
   currentFilterValue: string;
 };
 

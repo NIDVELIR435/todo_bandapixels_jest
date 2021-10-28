@@ -11,7 +11,7 @@ type Props = {
   status: string;
 };
 
-export const Item = (props: Props) => {
+export const ShapeByTodo = (props: Props) => {
   const { Option } = Select;
   const dispatch = useAppDispatch();
   function DeleteTask(): void {

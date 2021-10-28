@@ -1,13 +1,13 @@
 import React from "react";
 import { useFilteredSelector } from "State/Hooks";
-import { Item } from "./Item/Item";
-import { Todo } from "State/Slices/Todo";
+import { ShapeByTodo } from "../ShapeByTodo/ShapeByTodo";
+import { TodoType } from "State/Slices/TodoType";
 
-export const Task: React.FC = () => {
+export const FieldForTodos: React.FC = () => {
   const data = useFilteredSelector();
 
-  const Items = data.map((todo: Todo) => (
-    <Item
+  const Items = data.map((todo: TodoType) => (
+    <ShapeByTodo
       key={todo.id}
       id={todo.id}
       title={todo.title}

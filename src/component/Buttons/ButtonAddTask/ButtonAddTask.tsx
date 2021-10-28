@@ -2,30 +2,40 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import { addTask, currentFilter } from "State/Slices/TodoSlice";
 import { useAppDispatch } from "State/Hooks";
-import { TitleModal } from "../Modal/TitleModal/TitleModal";
-import { DescriptionModal } from "../Modal/DescriptionModal/DescriptionModal";
+import { TitleModal } from "../../Modal/TitleModal/TitleModal";
+import { DescriptionModal } from "../../Modal/DescriptionModal/DescriptionModal";
 
 export const ButtonAddTask = (): JSX.Element => {
-  const [showModalTitle, setShowModalTitle] = useState(false);
+  const [showTitleModal, setShowTitleModal] = useState(false);
   const [showDescriptionModal, setDescriptionModal] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const dispatch = useAppDispatch();
   const showModalFunc = () => {
-    setShowModalTitle(true);
+    setShowTitleModal(true);
   };
   const addTaskFunc = () => {
     dispatch(addTask({ title, description }));
     dispatch(currentFilter(""));
   };
-  const hideDescriptionModal = () => setDescriptionModal(false);
-
+  const hideDescriptionModal = (): void => setDescriptionModal(false);
+  const hideTitleModal = (): void => setShowTitleModal(false);
+  const onConfirmTitle = (): void => {
+    hideTitleModal();
+    setDescriptionModal(true);
+  };
+  const onConfirmDescription = (): void => {
+    addTaskFunc();
+    setTitle("");
+    setDescription("");
+    hideDescriptionModal();
+  };
   return (
     <>
       <TitleModal
-        showModalTitle={showModalTitle}
-        setShowModalTitle={setShowModalTitle}
-        setShowDescriptionModal={setDescriptionModal}
+        showTitleModal={showTitleModal}
+        hideTitleModal={hideTitleModal}
+        onConfirmTitle={onConfirmTitle}
         title={title}
         setTitle={setTitle}
       />
@@ -34,8 +44,7 @@ export const ButtonAddTask = (): JSX.Element => {
         hideDescriptionModal={hideDescriptionModal}
         description={description}
         setDescription={setDescription}
-        addTaskFunc={addTaskFunc}
-        setTitle={setTitle}
+        onConfirmDescription={onConfirmDescription}
       />
 
       <Button onClick={showModalFunc} tabIndex={1}>

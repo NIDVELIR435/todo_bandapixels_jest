@@ -1,6 +1,6 @@
 import { Status } from "../../Types/EnumStatus";
 
-export type Todo = {
+export type TodoType = {
   id: string;
   title: string;
   description: string;
