@@ -30,7 +30,7 @@ export const ShapeByTodo = (props: Props) => {
       : "#389e0d";
   return (
     <>
-      <Space direction="vertical" id={props.id}>
+      <Space direction="vertical" id={props.id} data-testid={props.id}>
         <Card
           title={props.title}
           style={{

@@ -1,29 +1,44 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { Props, TitleModal } from "./TitleModal";
+import { TitleModal } from "./TitleModal";
 import userEvent from "@testing-library/user-event";
 
 describe("ModalAddTask:", () => {
-  let props: Props;
+  const hideTitleModalMock = jest.fn();
+  const onConfirmTitleMock = jest.fn();
+  const setTitleMock = jest.fn();
   beforeEach(() => {
-    props = {
-      showTitleModal: true,
-      hideTitleModal: jest.fn(),
-      title: "title for first test",
-      onConfirmTitle: jest.fn(),
-      setTitle: jest.fn(),
-    };
+    render(
+      <TitleModal
+        showTitleModal={true}
+        hideTitleModal={hideTitleModalMock}
+        title="title"
+        onConfirmTitle={onConfirmTitleMock}
+        setTitle={setTitleMock}
+      />
+    );
   });
-  test("rendehttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/textbox_roler correct snapshot", () => {
-    render(<TitleModal {...props} />);
+  test("rendered correctly", () => {
     expect(screen).toMatchSnapshot();
   });
-  test("not rendered", () => {
-    // const Modal = screen;
-    // let Mocked = jest.fn(props.hideTitleModal);
-    render(<TitleModal {...props} />);
-    userEvent.type(screen.getByRole("textbox"), "title");
-    // expect(props.setTitle).toBeCalledTimes(5);
-    expect(screen.getByRole("textbox")).toHaveValue("title");
+  test("use onChange correct", () => {
+    userEvent.type(screen.getByRole("textbox"), "i");
+    expect(setTitleMock).toHaveBeenCalledTimes(1);
+  });
+  test("on press 'enter' call onConfirmTitleMock", () => {
+    userEvent.keyboard("{enter}");
+    expect(onConfirmTitleMock).toHaveBeenCalledTimes(1);
+  });
+  test("on click to 'ok' button, call  onConfirmTitleMock", () => {
+    userEvent.click(screen.getByText(/ok/i));
+    expect(onConfirmTitleMock).toHaveBeenCalledTimes(1);
+  });
+  test("on press 'esc' call hideTitleModalMock", () => {
+    userEvent.keyboard("{esc}");
+    expect(hideTitleModalMock).toHaveBeenCalledTimes(1);
+  });
+  test("on click to 'Cancel' button, call hideTitleModalMock", () => {
+    userEvent.click(screen.getByText(/Cancel/i));
+    expect(hideTitleModalMock).toHaveBeenCalledTimes(1);
   });
 });

@@ -5,7 +5,7 @@ import { useAppDispatch } from "State/Hooks";
 import { TitleModal } from "../../Modal/TitleModal/TitleModal";
 import { DescriptionModal } from "../../Modal/DescriptionModal/DescriptionModal";
 
-export const ButtonAddTask = (): JSX.Element => {
+export const ButtonAddTask: React.FC = () => {
   const [showTitleModal, setShowTitleModal] = useState(false);
   const [showDescriptionModal, setDescriptionModal] = useState(false);
   const [title, setTitle] = useState("");

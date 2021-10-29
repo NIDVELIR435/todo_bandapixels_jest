@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "antd";
 import { useAppDispatch } from "../../../State/Hooks";
 import { currentFilter } from "../../../State/Slices/TodoSlice";
 
-export const ButtonAll = (): JSX.Element => {
+export const ButtonAll: React.FC = () => {
   const dispatch = useAppDispatch();
   function onClick() {
     dispatch(currentFilter(""));

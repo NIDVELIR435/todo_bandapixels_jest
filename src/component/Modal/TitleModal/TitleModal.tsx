@@ -8,6 +8,7 @@ export type Props = {
   onConfirmTitle: () => void;
   setTitle: (arg: string) => void;
 };
+
 export const TitleModal: React.FC<Props> = ({
   showTitleModal,
   hideTitleModal,

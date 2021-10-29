@@ -10,7 +10,6 @@ import { Status } from "../../Types/EnumStatus";
 
 jest.mock("@reduxjs/toolkit", () => {
   const mockedId = "MOCKED_ID";
-
   // @ts-expect-error: mockValues is new prop
   global.mockValues = {
     mockedNanoidId: mockedId,
@@ -21,7 +20,7 @@ jest.mock("@reduxjs/toolkit", () => {
   };
 });
 
-describe("TodoSlice actions most: ", () => {
+describe("TodoSlice actions most:", () => {
   let initState: sliceState;
   let nanoidSpy: jest.SpyInstance;
 
@@ -95,7 +94,9 @@ describe("TodoSlice actions most: ", () => {
       initState,
       addTask({ title: "title", description: "description" })
     );
+
     expect(reducedInitState.todo[0].id).toStrictEqual(
+      // @ts-ignore
       global.mockValues.mockedNanoidId
     );
     expect(reducedInitState.todo.length).toBe(5);
@@ -106,7 +107,9 @@ describe("TodoSlice actions most: ", () => {
       addTask({ title: "title", description: "description" })
     );
     expect(reducedInitState.todo.length).toBe(5);
+
     expect(reducedInitState.todo[0].id).toStrictEqual(
+      // @ts-ignore
       global.mockValues.mockedNanoidId
     );
   });
@@ -118,7 +121,7 @@ describe("TodoSlice actions most: ", () => {
     let reducedInitState = todoReducer(initState, removeTask("1id"));
     expect(reducedInitState.todo.length).toBe(3);
   });
-  test("changeStatus-action upgrade ", () => {
+  test("changeStatus-action upgrade", () => {
     let reducedInitState = todoReducer(
       initState,
       changeStatus({ Status: Status.On_Hold, id: "2id" })
@@ -137,5 +140,4 @@ describe("TodoSlice actions most: ", () => {
     let reducedInitState = todoReducer(initState, currentFilter(""));
     expect(reducedInitState.currentFilterValue).toBe("");
   });
-  test("searchTask-action return correct value+");
 });

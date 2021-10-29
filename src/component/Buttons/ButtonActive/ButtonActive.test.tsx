@@ -15,8 +15,7 @@ describe("ButtonActive:", () => {
     render(<ButtonActive />);
   });
   test("to match snapshot", () => {
-    let ButtonRender = screen;
-    expect(ButtonRender).toMatchSnapshot();
+    expect(screen).toMatchSnapshot();
   });
   test("call dispatch which change status", () => {
     userEvent.click(screen.getByTestId("ButtonActive"));

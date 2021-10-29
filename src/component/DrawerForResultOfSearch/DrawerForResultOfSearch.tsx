@@ -39,7 +39,7 @@ export const DrawerForResultOfSearch: React.FC<Props> = ({
       closable={false}
       visible={showDrawer}
       onClose={hideDrawer}
-      destroyOnClose={true}
+      destroyOnClose={false}
       height={300}
     >
       {mappedData}

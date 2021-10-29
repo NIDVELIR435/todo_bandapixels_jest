@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import { DrawerForResultOfSearch } from "../../DrawerForResultOfSearch/DrawerForResultOfSearch";
 
-export const ButtonForDrawerOfSearch = (): JSX.Element => {
+export const ButtonForDrawerOfSearch: React.FC = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const visibleStat = (param: boolean) => setShowDrawer(param);
   const hideDrawer = (): void => setShowDrawer(false);
