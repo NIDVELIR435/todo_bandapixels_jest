@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "antd";
 import { useAppDispatch } from "State/Hooks";
-import { currentFilter } from "State/Slices/TodoSlice";
+import { currentFilter } from "State/Slices/TodoSlice/TodoSlice";
 import { Status } from "Types/EnumStatus";
 
 export const ButtonOnHold = (): JSX.Element => {

@@ -6,7 +6,7 @@ import {
   sliceState,
   todoReducer,
 } from "./TodoSlice";
-import { Status } from "../../Types/EnumStatus";
+import { Status } from "../../../Types/EnumStatus";
 
 jest.mock("@reduxjs/toolkit", () => {
   const mockedId = "MOCKED_ID";

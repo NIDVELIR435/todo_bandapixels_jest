@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import { currentFilter } from "State/Slices/TodoSlice";
+import { currentFilter } from "State/Slices/TodoSlice/TodoSlice";
 import { useAppDispatch } from "State/Hooks";
 import { Status } from "Types/EnumStatus";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "antd";
-import { addTask, currentFilter } from "State/Slices/TodoSlice";
+import { addTask, currentFilter } from "State/Slices/TodoSlice/TodoSlice";
 import { useAppDispatch } from "State/Hooks";
 import { TitleModal } from "../../Modal/TitleModal/TitleModal";
 import { DescriptionModal } from "../../Modal/DescriptionModal/DescriptionModal";

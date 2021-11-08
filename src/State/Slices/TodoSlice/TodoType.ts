@@ -1,4 +1,4 @@
-import { Status } from "../../Types/EnumStatus";
+import { Status } from "../../../Types/EnumStatus";
 
 export type TodoType = {
   id: string;

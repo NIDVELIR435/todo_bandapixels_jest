@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ButtonForDrawerOfSearch } from "./ButtonForDrawerOfSearch";
 import { useSearchSelector } from "State/Hooks";
-import { TodoType } from "State/Slices/TodoType";
+import { TodoType } from "State/Slices/TodoSlice/TodoType";
 import userEvent from "@testing-library/user-event";
 
 jest.mock("State/Hooks");

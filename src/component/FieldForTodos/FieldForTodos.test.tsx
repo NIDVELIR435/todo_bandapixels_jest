@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { FieldForTodos } from "./FieldForTodos";
 import { useFilteredSelector } from "State/Hooks";
-import { TodoType } from "../../State/Slices/TodoType";
+import { TodoType } from "../../State/Slices/TodoSlice/TodoType";
 
 jest.mock("State/Hooks");
 

@@ -1,12 +1,12 @@
 import React from "react";
-import { useFilteredSelector } from "State/Hooks";
+import { useSortedSelector } from "State/Hooks";
 import { ShapeByTodo } from "../ShapeByTodo/ShapeByTodo";
-import { TodoType } from "State/Slices/TodoType";
+import { Spin } from "antd";
+import { TodoType } from "../../State/Slices/TodoSlice/TodoType";
 
 export const FieldForTodos: React.FC = () => {
-  const data = useFilteredSelector();
-
-  const Items = data.map((todo: TodoType) => (
+  const todos = useSortedSelector();
+  const Items = todos.map((todo: TodoType) => (
     <ShapeByTodo
       key={todo.id}
       id={todo.id}
@@ -16,5 +16,5 @@ export const FieldForTodos: React.FC = () => {
     />
   ));
 
-  return <>{Items}</>;
+  return <>{todos.length > 0 ? Items : <Spin size="large" />}</>;
 };

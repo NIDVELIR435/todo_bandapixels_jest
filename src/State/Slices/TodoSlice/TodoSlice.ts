@@ -1,16 +1,27 @@
-import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  nanoid,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import { Status } from "Types/EnumStatus";
 import { TodoType } from "./TodoType";
+import { getAllTask } from "../../../Api/JSONplaceHolder/Tasks";
 
 export type sliceState = {
   todo: Array<TodoType>;
   currentFilterValue: string;
 };
+const tasksSliceName = "todo";
+export const fetchTasks = createAsyncThunk(
+  `${tasksSliceName}/fetchTasks`,
+  getAllTask
+);
 
 export const initialState: sliceState = { todo: [], currentFilterValue: "" };
 
 export const todoSlice = createSlice({
-  name: "todo",
+  name: tasksSliceName,
   initialState,
   reducers: {
     addTask: (state, action) => {
@@ -43,6 +54,19 @@ export const todoSlice = createSlice({
     ) => {
       state.currentFilterValue = category;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchTasks.fulfilled, (state, { payload: todos }) => {
+      todos.forEach((task) => {
+        state.todo.unshift({
+          id: nanoid(10),
+          title: task.title,
+          description: task.title,
+          status: Status.Active,
+        });
+      });
+      console.log(todos);
+    });
   },
 });
 export const {

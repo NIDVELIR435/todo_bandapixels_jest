@@ -3,3 +3,8 @@ export enum Status {
   On_Hold = "On_Hold",
   Completed = "Completed",
 }
+
+export enum ThemeStatus {
+  dark,
+  light,
+}

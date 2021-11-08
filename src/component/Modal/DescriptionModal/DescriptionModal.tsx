@@ -8,6 +8,7 @@ type Props = {
   setDescription: (arg: string) => void;
   onConfirmDescription: () => void;
 };
+
 export const DescriptionModal: React.FC<Props> = ({
   showDescriptionModal,
   hideDescriptionModal,
